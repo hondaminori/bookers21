@@ -47,38 +47,27 @@
           </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            <a href="/users/2535">
-              <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGNiIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--977fe2e67a5770f018f2b651cd9f7320f241b670/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVZWcFZRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--596aecbd1e45058af6bad2ccaa755120cd0daa59/default-image.jpg">
-            </a>        
-          </td>
-          <td>
-            <a class="book_1885" href="/books/1885">リーダブルコード
-
-            </a>
-          </td>
-          <td>
-            より良いコードを書くためのシンプルで実践的なテクニック。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="/users/2535">
-              <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGNiIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--977fe2e67a5770f018f2b651cd9f7320f241b670/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVZWcFZRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--596aecbd1e45058af6bad2ccaa755120cd0daa59/default-image.jpg">
-            </a>        
-          </td>
-          <td>
-            <a class="book_1885" href="/books/1885">リーダブルコード
-
-            </a>
-          </td>
-          <td>
-            より良いコードを書くためのシンプルで実践的なテクニック。
-          </td>
-        </tr>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user_id) do %>
+                  <%= image_tag book.user.get_profile_image(80, 80) %>
+                <% end %>
+                </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+                </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
+
+
     </div>
   </div>
 </div>
