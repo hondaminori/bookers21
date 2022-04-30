@@ -25,20 +25,25 @@
             <td>
               <%= @book.body %>
             </td>
-            <td>
-              <%= link_to 'Edit', 
+            <% if @book.user == current_user %>
+              <td>
+                <%= link_to 'Edit', 
                 edit_book_path(@book.id), 
                 class: 'btn btn-sm btn-success' 
-              %>
-            </td>
-            <td>
-              <%= link_to 'Destroy', 
+                %>
+              </td>
+              <td>
+                <%= link_to 'Destroy', 
                 book_path(@book.id), 
                 method: :delete, 
                 class: 'btn btn-sm btn-danger', 
                 'data-confirm' => '本当に消しますか？' 
-              %>
-            </td>
+                %>
+              </td>
+            <% else %>
+              <td></td>
+              <td></td>
+            <% end %>
           </tr>
         </tbody>
       </table>
