@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     else
       @book = book
       @books = Book.all
+      @user = current_user
       render :index
     end      
   
